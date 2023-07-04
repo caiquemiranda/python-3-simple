@@ -1,40 +1,41 @@
 from datetime import datetime
 
-class person(object):
-    "Person Class"
+class pessoa(object):
+    "Classe pessoa"
 
-    def __init__(self,name,age,parent=None):
-        self.name=name
-        self.age=age
-        self.created=datetime.today()
-        self.parent=parent
-        self.children=[]
+    def __init__(self, nome, idade, pais = None):
         
-        print('Created',self.name,'age',self.age)
+        self.nome = nome
+        self.idade = idade
+        self.criacao = datetime.today()
+        self.pais = pais
+        self.filhos = []
+        
+        print('Criado', self.nome,'Idade', self.idade)
 
-    def setName(self,name):
-        self.name=name
-        print('Updated name',self.name)
+    def setName(self, nome):
+        self.nome = nome
+        print('Atualização nome ', self.nome)
 
-    def setAge(self,age):
-        self.age=age
-        print('Updated age',self.age)
+    def setAge(self, idade):
+        self.idade = idade
+        print('Atualização idade', self.idade)
 
-    def addChild(self,name,age):
-        child=person(name,age,parent=self)
-        self.children.append(child)
-        print(self.name,'added child',child.name)
+    def addChild(self, nome, idade):
+        crianca = pessoa(nome, idade, pais = self)
+        self.filhos.append(crianca)
+        print(self.nome,'Adicionado criança', crianca.nome)
 
     def listChildren(self):
         
-        if len(self.children)>0:
-            print(self.name,'has children:')
+        if len(self.filhos)>0:
+            print(self.nome,'Tem filhos: ')
         
-            for c in self.children:
-                print(' ',c.name)
+            for c in self.filhos:
+                print(' ',c.nome)
         
         else:
-            print(self.name,'has no children')
+            print(self.nome,'Não tem filhos')
 
     def getChildren(self):
-        return self.children
+        return self.filhos
